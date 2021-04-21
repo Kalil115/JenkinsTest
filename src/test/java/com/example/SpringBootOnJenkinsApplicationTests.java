@@ -40,7 +40,7 @@ class SpringBootOnJenkinsApplicationTests {
 			mockMvc.perform(MockMvcRequestBuilders.get("/unit/json").accept(MediaType.APPLICATION_JSON_VALUE))
 			.andExpect(MockMvcResultMatchers.status().isOk())
 			.andExpect(MockMvcResultMatchers.jsonPath("$.id", Matchers.is(Integer.valueOf("1"))))
-			.andExpect(MockMvcResultMatchers.jsonPath("$.name", Matchers.is("Jass")));
+			.andExpect(MockMvcResultMatchers.jsonPath("$.name", Matchers.is("Jazz")));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
