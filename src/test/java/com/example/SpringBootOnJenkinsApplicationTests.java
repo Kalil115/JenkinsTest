@@ -1,8 +1,10 @@
 package com.example;
 
+import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MockMvcBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -30,5 +32,18 @@ class SpringBootOnJenkinsApplicationTests {
 		}
 	}
 
+	@Test
+	void testUnitJson() {
+		mockMvc = MockMvcBuilders.standaloneSetup(unitResource).build();
+		System.out.println("Unit Mock Testing Json");
+		try {
+			mockMvc.perform(MockMvcRequestBuilders.get("/unit/json").accept(MediaType.APPLICATION_JSON_VALUE))
+			.andExpect(MockMvcResultMatchers.status().isOk())
+			.andExpect(MockMvcResultMatchers.jsonPath("$.id", Matchers.is(Integer.valueOf("1"))))
+			.andExpect(MockMvcResultMatchers.jsonPath("$.name", Matchers.is("Jass")));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
 }
