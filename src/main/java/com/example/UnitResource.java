@@ -18,7 +18,7 @@ public class UnitResource {
 	
 	@RequestMapping(value = "/json", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Unit getUnitJson() {
-		return new Unit(1, "Jass");
+		return new Unit(1, "Jazz");
 	}
 }
 
