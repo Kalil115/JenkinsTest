@@ -13,10 +13,8 @@ public class DataController {
 
 	@RequestMapping("add/{id}/{name}")
 	public String addData(@PathVariable Integer id, @PathVariable String name) {
-		System.out.println(hs);
 		hs.put(id, new Data(id, name));
-		System.out.println(hs);
-		return (hs.size()>0)?hs.size()+" Data Uploaded ":" Getting error";
+		return hs.toString();
 		
 	}
 }
